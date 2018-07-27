@@ -1,7 +1,9 @@
 <template>
   <div id="app">
-    <my-header></my-header>
-    <router-view/>
+    <div class="content">
+      <my-header></my-header>
+      <router-view/>
+    </div>
     <my-footer></my-footer>
   </div>
 </template>
@@ -18,10 +20,16 @@ export default {
 }
 </script>
 
-<style>
+<style lang="less">
 *{
   border: 0;
   margin: 0;
   padding: 0;
+}
+#app{
+  padding-top: 40px;
+  .content{
+    min-height: 400px;
+  }
 }
 </style>
