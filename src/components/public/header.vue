@@ -13,7 +13,7 @@ export default {
   name: 'myHeader',
   data () {
     return {
-      msg: '前端开发之路',
+      msg: '',
       options: [
         {label: '橘黄', value: 'orangeYellow'},
         {label: '橘红', value: 'orangeRed'},
@@ -35,6 +35,19 @@ export default {
     } else {
       document.body.className = window.localStorage.skin
     }
+  },
+  mounted () {
+    this.$nextTick(_ => {
+      let url = '/static/json/header/header.json'
+      this.$http({
+        url,
+        method: 'GET'
+      }).then(res => {
+        this.msg = res.data.headerMsg
+      }, err => {
+        console.log(err)
+      })
+    })
   }
 }
 </script>
