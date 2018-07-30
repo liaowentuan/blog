@@ -16,15 +16,18 @@ export default {
 }
 </script>
 <style scoped lang="less">
-.footer{
-  background: black;
-  color: #fff;
-  width: 100%;
-  .footerInner{
-    max-width: 1000px;
-    height: 150px;
-    padding: 0 20px;
-    margin: 0 auto;
+@import '../../common/changeColor';
+.changeColor(@deep, @shadow) {
+  .footer {
+    background: @deep;
+    color: #fff;
+    width: 100%;
+    .footerInner {
+      max-width: 1000px;
+      height: 150px;
+      padding: 0 20px;
+      margin: 0 auto;
+    }
   }
 }
 </style>

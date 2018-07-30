@@ -21,15 +21,22 @@ export default {
 </script>
 
 <style lang="less">
+@import '../src/common/changeColor';
 *{
   border: 0;
   margin: 0;
   padding: 0;
 }
-#app{
-  padding-top: 40px;
-  .content{
-    min-height: 400px;
+.changeColor(@deep, @shadow) {
+  #app{
+    padding-top: 40px;
+    .content{
+      min-height: 400px;
+    }
+  }
+  ul{
+    list-style: none
   }
 }
+
 </style>

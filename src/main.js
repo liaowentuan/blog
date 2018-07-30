@@ -32,6 +32,8 @@ Vue.prototype.Base64 = require('js-base64').Base64
 
 Vue.config.productionTip = false
 
+Vue.use(ElementUI)
+
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
@@ -41,4 +43,3 @@ new Vue({
   components: { App },
   template: '<App/>'
 })
-Vue.use(ElementUI)
