@@ -27,6 +27,15 @@ export default {
   margin: 0;
   padding: 0;
 }
+.fr{
+  float: right;
+}
+.fl{
+  float: left;
+}
+.clear{
+  clear: both;
+}
 .changeColor(@deep, @shadow) {
   #app{
     padding-top: 40px;
