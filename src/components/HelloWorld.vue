@@ -3,7 +3,7 @@
     <div class="background">
 
     </div>
-
+    <canvas id="live2d" width="280" height="250"></canvas>
   </div>
 </template>
 

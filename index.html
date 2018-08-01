@@ -3,11 +3,71 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <!-- 版本1.0 start -->
+    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="./static/assets/waifu.css">
+    <!-- 版本1.0 end -->
+    <!-- 版本2.0 start -->
+    <!-- <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="/static/live2d/css/live2d.css" /> -->
+
     <title>blog</title>
   </head>
   <body class="style">
     <div id="app"></div>
     <!-- built files will be auto injected -->
+    <!-- 版本1.0 start -->
+	  <div class="waifu" id="waifu">
+		  <div class="waifu-tips" style="opacity: 1;"></div>
+		  <canvas id="live2d" width="280" height="250" class="live2d"></canvas>
+      <div class="waifu-tool">
+        <span class="fui-home"></span>
+        <span class="fui-chat"></span>
+        <span class="fui-eye"></span>
+        <span class="fui-user"></span>
+        <span class="fui-photo"></span>
+        <span class="fui-info-circle"></span>
+        <span class="fui-cross"></span>
+      </div>
+	  </div>
+    <script src="./static/assets/live2d.js"></script>
+    <script src="./static/assets/waifu-tips.js"></script>
+    <script type="text/javascript">initModel()</script>
+    <!-- 版本1.0 end -->
+    <!-- 版本2.0 start -->
+    <!-- <div id="landlord" style="left:5px;bottom:0px;">
+    <div class="message" style="opacity:0"></div>
+    <canvas id="live2d" width="480" height="640" class="live2d"></canvas>
+    <div class="live_talk_input_body">
+    <div class="live_talk_input_name_body">
+    <input name="name" type="text" class="live_talk_name white_input" id="AIuserName" autocomplete="off" placeholder="你的名字" />
+    </div>
+    <div class="live_talk_input_text_body">
+    <input name="talk" type="text" class="live_talk_talk white_input" id="AIuserText" autocomplete="off" placeholder="要和我聊什么呀？"/>
+    <button type="button" class="live_talk_send_btn" id="talk_send">发送</button>
+    </div>
+    </div>
+    <input name="live_talk" id="live_talk" value="1" type="hidden" />
+    <div class="live_ico_box">
+    <div class="live_ico_item type_info" id="showInfoBtn"></div>
+    <div class="live_ico_item type_talk" id="showTalkBtn"></div>
+    <div class="live_ico_item type_music" id="musicButton"></div>
+    <div class="live_ico_item type_youdu" id="youduButton"></div>
+    <div class="live_ico_item type_quit" id="hideButton"></div>
+    <input name="live_statu_val" id="live_statu_val" value="0" type="hidden" />
+    <audio src="" style="display:none;" id="live2d_bgm" data-bgm="0" preload="none"></audio>
+    <input name="live2dBGM" value="音乐地址" type="hidden">
+    <input id="duType" value="douqilai,l2d_caihong" type="hidden">
+    </div>
+    </div>
+    <div id="open_live2d">召唤康纳</div>
+    <script>
+      var message_Path = 'static/live2d/';//资源目录，如果目录不对请更改
+      var talkAPI = "";//如果有类似图灵机器人的聊天接口请填写接口路径
+    </script>
+    <script type="text/javascript" src="/static/live2d/js/live2d.js"></script>
+    <script type="text/javascript" src="/static/live2d/js/message.js"></script> -->
+    <!-- 版本2.0 end -->
   </body>
   <script>
     var hiddenProperty = 'hidden' in document ? 'hidden' : 'webkitHidden' in document ? 'webkitHidden' : 'mozHidden' in document ? 'mozHidden' : null;
