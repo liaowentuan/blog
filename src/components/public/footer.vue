@@ -23,6 +23,7 @@ export default {
     color: #fff;
     width: 100%;
     .footerInner {
+      text-align: center;
       max-width: 1000px;
       height: 150px;
       padding: 0 20px;

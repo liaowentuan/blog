@@ -2,9 +2,37 @@
     <div class="header">
       <div class="headerInner">
         <span class="title">{{msg}}</span>
-        <ul class="toggle">
-          <li v-for="item in options" :key="item.value"><i @click="chooseColor(item.value)" :class="'toggle-skin' + item.value"></i></li>
-        </ul>
+        <el-menu :default-active="activeIndex" class="el-menu-demo" mode="horizontal" @select="handleSelect">
+          <el-menu-item index="1">resume</el-menu-item>
+          <el-submenu index="2">
+            <template slot="title" style="height: 40px;line-height: 40px;">Skill</template>
+            <el-submenu index="2-1">
+              <template slot="title">前端</template>
+              <el-menu-item index="2-1-1">选项1</el-menu-item>
+              <el-menu-item index="2-1-2">选项2</el-menu-item>
+              <el-menu-item index="2-1-3">选项3</el-menu-item>
+            </el-submenu>
+            <el-submenu index="2-2">
+              <template slot="title">后端</template>
+              <el-menu-item index="2-2-1">选项1</el-menu-item>
+              <el-menu-item index="2-2-2">选项2</el-menu-item>
+              <el-menu-item index="2-2-3">选项3</el-menu-item>
+            </el-submenu>
+            <el-submenu index="2-3">
+              <template slot="title">计算机</template>
+              <el-menu-item index="2-3-1">选项1</el-menu-item>
+              <el-menu-item index="2-3-2">选项2</el-menu-item>
+              <el-menu-item index="2-3-3">选项3</el-menu-item>
+            </el-submenu>
+          </el-submenu>
+          <el-menu-item index="3">Family</el-menu-item>
+          <el-submenu index="4"  class="toggle">
+            <template slot="title" style="height: 40px;line-height: 40px;">chooseSkin</template>
+            <el-menu-item v-for="(item, index) in options" index="4-1" :key="index" @click="chooseColor(item.value)">
+              {{item.label}}&nbsp;<i :class="'toggle-skin' + item.value"></i>
+            </el-menu-item>
+          </el-submenu>
+        </el-menu>
       </div>
     </div>
 </template>
@@ -16,7 +44,7 @@ export default {
       msg: '',
       options: [
         {label: '橘黄', value: 'orangeYellow'},
-        {label: '橘红', value: 'orangeRed'},
+        {label: '血红', value: 'orangeRed'},
         {label: '黑白', value: 'black'},
         {label: '蓝色', value: 'blue'}
       ],
@@ -52,25 +80,20 @@ export default {
 }
 </script>
 <style lang="less" scoped>
+
 @import '../../common/changeColor';
 .changeColor(@deep, @shadow) {
-  .header {
-    .headerInner{
-      margin: 0 auto;
-      max-width: 1000px;
-      padding: 0 20px;
-      .title{
-        font-weight: 900;
-        font-size:  18px;
-      }
-      .toggle{
-        float: right;
-        li{
-          float: left;
-          margin: 0 10px;
-        }
-      }
-      [class^='toggle-skin']{
+  .el-dropdown-menu__item--divided:before, .el-menu, .el-menu--horizontal>.el-menu-item:not(.is-disabled):focus, .el-menu--horizontal>.el-menu-item:not(.is-disabled):hover, .el-menu--horizontal>.el-submenu .el-submenu__title:hover{
+    background: @shadow;
+  }
+  // .el-menu--horizontal>.el-submenu .el-submenu__title:hover{
+  //   background: @shadow;
+  // }
+  .el-menu--horizontal>.el-menu-item.is-active{
+    border-bottom: 2px solid @deep;
+  }
+  [class^='toggle-skin']{
+        text-align: center;
         display: inline-block;
         width: 10px;
         height: 10px;
@@ -93,6 +116,48 @@ export default {
         border: 2px solid #ABC6FF;
         background: #1570E8;
       }
+  .header {
+    .headerInner{
+      height: 40px;
+      line-height: 40px;
+      .el-menu{
+        text-align: center;
+        display: inline-block;
+        height: 40px;
+        line-height: 40px;
+        background: @deep;
+        li{
+          height: 40px;
+          line-height: 40px;
+          /deep/ div{
+            height: 40px;
+            line-height: 40px;
+          }
+          /deep/ .el-submenu__title{
+            border-bottom: 2px solid @deep;
+          }
+          /deep/ .el-submenu__title:hover{
+            background: @shadow;
+          }
+        }
+      }
+      margin: 0 auto;
+      max-width: 1000px;
+      padding: 0 20px;
+      .title{
+        font-weight: 900;
+        font-size:  18px;
+        float: left;
+        margin: 0 10px;
+      }
+      .toggle{
+        float: right;
+        li{
+          float: left;
+          margin: 0 10px;
+        }
+      }
+      
     }
     background: @deep;
     color: #fff;
@@ -101,6 +166,7 @@ export default {
     height: 40px;
     line-height: 40px;
     width: 100%;
+    z-index: 1000;
   }
 }
 
