@@ -2,7 +2,7 @@
     <div class="header">
       <div class="headerInner">
         <span class="title">{{msg}}</span>
-        <el-menu :default-active="1" class="el-menu-demo" mode="horizontal">
+        <el-menu :default-active="'1'" class="el-menu-demo" mode="horizontal">
           <el-menu-item index="1">resume</el-menu-item>
           <el-submenu index="2">
             <template slot="title" style="height: 40px;line-height: 40px;">Skill</template>
@@ -157,7 +157,7 @@ export default {
     }
     background: @deep;
     color: #fff;
-    position: fixed;
+    position: absolute;
     top: 0;
     height: 40px;
     line-height: 40px;

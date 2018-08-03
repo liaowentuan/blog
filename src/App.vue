@@ -39,9 +39,6 @@ export default {
 .changeColor(@deep, @shadow) {
   #app{
     padding-top: 40px;
-    .content{
-      min-height: 400px;
-    }
   }
   ul{
     list-style: none

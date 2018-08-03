@@ -22,6 +22,8 @@ export default {
     background: @deep;
     color: #fff;
     width: 100%;
+    position: relative;
+    z-index: 1;
     .footerInner {
       text-align: center;
       max-width: 1000px;
