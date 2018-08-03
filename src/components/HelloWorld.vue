@@ -4,7 +4,6 @@
       <div class="background">
       </div>
     </div>
-    
     <canvas id="live2d" width="280" height="250"></canvas>
   </div>
 </template>
@@ -29,7 +28,7 @@ export default {
     position: relative;
     .background{
       background: url('/static/img/3bad1ed4ce5beaab815d8fbd97729e46.jpg') no-repeat;
-      background-size: cover;;//此处要注意，可以填cover也可以填100%。建议填100%
+      background-size: cover;
       display: block;
       min-height: 300px;
       position: absolute;
@@ -38,6 +37,5 @@ export default {
       right: 0;
     }
   }
-  
 }
 </style>

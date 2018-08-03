@@ -2,7 +2,7 @@
     <div class="header">
       <div class="headerInner">
         <span class="title">{{msg}}</span>
-        <el-menu :default-active="activeIndex" class="el-menu-demo" mode="horizontal" @select="handleSelect">
+        <el-menu :default-active="1" class="el-menu-demo" mode="horizontal">
           <el-menu-item index="1">resume</el-menu-item>
           <el-submenu index="2">
             <template slot="title" style="height: 40px;line-height: 40px;">Skill</template>
@@ -80,15 +80,11 @@ export default {
 }
 </script>
 <style lang="less" scoped>
-
 @import '../../common/changeColor';
 .changeColor(@deep, @shadow) {
   .el-dropdown-menu__item--divided:before, .el-menu, .el-menu--horizontal>.el-menu-item:not(.is-disabled):focus, .el-menu--horizontal>.el-menu-item:not(.is-disabled):hover, .el-menu--horizontal>.el-submenu .el-submenu__title:hover{
     background: @shadow;
   }
-  // .el-menu--horizontal>.el-submenu .el-submenu__title:hover{
-  //   background: @shadow;
-  // }
   .el-menu--horizontal>.el-menu-item.is-active{
     border-bottom: 2px solid @deep;
   }
