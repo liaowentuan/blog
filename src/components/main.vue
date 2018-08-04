@@ -73,7 +73,7 @@ export default {
         display: block;
         width: 90%;
         margin: 0 auto;
-        max-width: 700px; 
+        max-width: 700px;
         height: 250px;
         background: @shadow;
         filter: opacity(0.9);
@@ -87,7 +87,7 @@ export default {
         height: 200px;
         margin: 25px;
       }
-      .contentMedia-0{
+      .contentMedia-1{
         .contentImg{
           float: left;
         }

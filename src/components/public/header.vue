@@ -79,6 +79,7 @@ export default {
   }
 }
 </script>
+
 <style lang="less" scoped>
 @import '../../common/changeColor';
 .changeColor(@deep, @shadow) {
@@ -165,5 +166,4 @@ export default {
     z-index: 1000;
   }
 }
-
 </style>
