@@ -147,14 +147,13 @@ export default {
         float: left;
         margin: 0 10px;
       }
-      .toggle{
+      .toggle {
         float: right;
-        li{
+        li {
           float: left;
           margin: 0 10px;
         }
       }
-      
     }
     background: @deep;
     color: #fff;
