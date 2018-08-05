@@ -1,8 +1,9 @@
 const mutations = {
-  addition: state => state.count++,
-  minus: state => state.count--,
-  setZero: state => {
-    state.count = 0
+  chooseEn: state => {
+    state.Lang = 'en'
+  },
+  chooseZh: state => {
+    state.Lang = 'zh-cn'
   }
 }
 

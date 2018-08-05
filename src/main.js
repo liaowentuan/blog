@@ -29,6 +29,7 @@ axios.interceptors.response.use(function (response) {
 Vue.prototype.$http = axios
 Vue.prototype.echarts = echarts
 Vue.prototype.Base64 = require('js-base64').Base64
+Vue.prototype.Lang = 'en'
 
 Vue.config.productionTip = false
 

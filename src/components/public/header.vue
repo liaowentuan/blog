@@ -1,11 +1,11 @@
 <template>
     <div class="header">
       <div class="headerInner">
-        <span class="title">{{msg}}</span>
+        <span class="title">{{msg[Lang]}}</span>
         <el-menu :default-active="'1'" class="el-menu-demo" mode="horizontal">
-          <el-menu-item index="1">resume</el-menu-item>
+          <el-menu-item index="1">{{firstNavItem[Lang]}}</el-menu-item>
           <el-submenu index="2">
-            <template slot="title" style="height: 40px;line-height: 40px;">Skill</template>
+            <template slot="title" style="height: 40px;line-height: 40px;">{{secondNavItem[Lang]}}</template>
             <el-submenu index="2-1">
               <template slot="title">前端</template>
               <el-menu-item index="2-1-1">选项1</el-menu-item>
@@ -25,11 +25,20 @@
               <el-menu-item index="2-3-3">选项3</el-menu-item>
             </el-submenu>
           </el-submenu>
-          <el-menu-item index="3">Family</el-menu-item>
+          <el-menu-item index="3">{{thirdNavItem[Lang]}}</el-menu-item>
           <el-submenu index="4"  class="toggle">
-            <template slot="title" style="height: 40px;line-height: 40px;">chooseSkin</template>
-            <el-menu-item v-for="(item, index) in options" index="4-1" :key="index" @click="chooseColor(item.value)">
+            <template slot="title" style="height: 40px;line-height: 40px;">{{fourthNavItem[Lang]}}</template>
+            <el-menu-item v-for="(item, index) in options[Lang]" index="4-1" :key="index" @click="chooseColor(item.value)">
               {{item.label}}&nbsp;<i :class="'toggle-skin' + item.value"></i>
+            </el-menu-item>
+          </el-submenu>
+          <el-submenu index="5">
+            <template slot="title" style="height: 40px;line-height: 40px;">{{fifthNavItem[Lang]}}</template>
+            <el-menu-item @click="chooseLanguage('en')" index="5-1">
+              English
+            </el-menu-item>
+            <el-menu-item @click="chooseLanguage('zh-cn')" index="5-2">
+              中文
             </el-menu-item>
           </el-submenu>
         </el-menu>
@@ -42,12 +51,40 @@ export default {
   data () {
     return {
       msg: '',
-      options: [
-        {label: '橘黄', value: 'orangeYellow'},
-        {label: '血红', value: 'orangeRed'},
-        {label: '黑白', value: 'black'},
-        {label: '蓝色', value: 'blue'}
-      ],
+      firstNavItem: {
+        'en': 'resume',
+        'zh-cn': '个人简历'
+      },
+      secondNavItem: {
+        'en': 'skill',
+        'zh-cn': '技能'
+      },
+      thirdNavItem: {
+        'en': 'Family',
+        'zh-cn': '家庭'
+      },
+      fourthNavItem: {
+        'en': 'chooseSkin',
+        'zh-cn': '换肤'
+      },
+      fifthNavItem: {
+        'en': 'language',
+        'zh-cn': '语言'
+      },
+      options: {
+        'en': [
+          {label: 'orange', value: 'orangeYellow'},
+          {label: 'red', value: 'orangeRed'},
+          {label: 'black', value: 'black'},
+          {label: 'blue', value: 'blue'}
+        ],
+        'zh-cn': [
+          {label: '橘黄', value: 'orangeYellow'},
+          {label: '血红', value: 'orangeRed'},
+          {label: '黑白', value: 'black'},
+          {label: '蓝色', value: 'blue'}
+        ]
+      },
       value: ''
     }
   },
@@ -55,6 +92,13 @@ export default {
     chooseColor (item) {
       document.body.className = 'style-' + item
       window.localStorage.skin = document.body.className
+    },
+    chooseLanguage (item) {
+      if (item === 'en') {
+        this.$store.commit('chooseEn')
+      } else if (item === 'zh-cn') {
+        this.$store.commit('chooseZh')
+      }
     }
   },
   created () {
@@ -66,16 +110,23 @@ export default {
   },
   mounted () {
     this.$nextTick(_ => {
-      let url = '/static/json/header/header.json'
+      let url = '/static/api/info/header.json'
       this.$http({
         url,
         method: 'GET'
       }).then(res => {
         this.msg = res.data.headerMsg
+        debugger
       }, err => {
         console.log(err)
       })
     })
+  },
+  computed: {
+    Lang () {
+      // 直接返回 state
+      return this.$store.state.Lang
+    }
   }
 }
 </script>
@@ -148,7 +199,6 @@ export default {
         margin: 0 10px;
       }
       .toggle {
-        float: right;
         li {
           float: left;
           margin: 0 10px;
