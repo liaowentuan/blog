@@ -1,6 +1,8 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import main from '@/components/main'
+
+import skill from '@/components/skill/skill'
+import resume from '@/components/resume/resume'
 
 Vue.use(Router)
 
@@ -8,8 +10,17 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'main',
-      component: main
+      redirect: 'resume'
+    },
+    {
+      path: '/resume',
+      name: 'resume',
+      component: resume
+    },
+    {
+      path: '/skill/:fenlei/:id',
+      name: 'skill',
+      component: skill
     }
   ]
 })

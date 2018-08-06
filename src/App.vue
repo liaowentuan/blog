@@ -2,7 +2,11 @@
   <div id="app">
     <div class="content">
       <my-header></my-header>
-      <router-view/>
+      <div class="main">
+        <div class="background"></div>
+        <router-view/>
+        <canvas style="position: fixed;bottom: 0;left: 0;" id="live2d" width="280" height="250"></canvas>
+      </div>
     </div>
     <my-footer></my-footer>
   </div>
@@ -39,6 +43,23 @@ export default {
 .changeColor(@deep, @shadow) {
   #app{
     padding-top: 40px;
+    .main{
+      background: @shadow;
+      .background{
+        background: url('/static/img/background/background-1.jpg') no-repeat; //  3bad1ed4ce5beaab815d8fbd97729e46.jpg
+        background-size: cover;
+        display: block;
+        position: fixed;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        // 仅限定于1920px
+        margin: 0 auto;
+        max-width: 1920px;
+        filter: opacity(0.5);
+      }
+    }
   }
   ul{
     list-style: none

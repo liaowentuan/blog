@@ -2,15 +2,15 @@
     <div class="header">
       <div class="headerInner">
         <span class="title">{{msg[Lang]}}</span>
-        <el-menu :default-active="'1'" class="el-menu-demo" mode="horizontal">
-          <el-menu-item index="1">{{firstNavItem[Lang]}}</el-menu-item>
-          <el-submenu index="2">
+        <el-menu :default-active="'resume'" class="el-menu-demo" mode="horizontal" router>
+          <el-menu-item index="resume" :route="{path: '/resume'}">{{firstNavItem[Lang]}}</el-menu-item>
+          <el-submenu index="skill">
             <template slot="title" style="height: 40px;line-height: 40px;">{{secondNavItem[Lang]}}</template>
-            <el-submenu index="2-1">
+            <el-submenu index="skill">
               <template slot="title">前端</template>
-              <el-menu-item index="2-1-1">选项1</el-menu-item>
-              <el-menu-item index="2-1-2">选项2</el-menu-item>
-              <el-menu-item index="2-1-3">选项3</el-menu-item>
+              <el-menu-item index="skill/Front-end/1" :route="{path: '/skill/Front-end/1'}">选项1</el-menu-item>
+              <el-menu-item index="skill/Front-end/2">选项2</el-menu-item>
+              <el-menu-item index="skill/Front-end/3">选项3</el-menu-item>
             </el-submenu>
             <el-submenu index="2-2">
               <template slot="title">后端</template>
@@ -169,6 +169,7 @@ export default {
       height: 40px;
       line-height: 40px;
       .el-menu{
+        border-bottom: 0;
         text-align: center;
         display: inline-block;
         height: 40px;
