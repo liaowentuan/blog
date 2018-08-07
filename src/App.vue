@@ -37,6 +37,12 @@ export default {
 .fl{
   float: left;
 }
+.tr{
+  text-align: right;
+}
+.tl{
+  text-align: left;
+}
 .clear{
   clear: both;
 }
