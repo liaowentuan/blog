@@ -6,23 +6,24 @@
           <el-menu-item index="resume" :route="{path: '/resume'}">{{firstNavItem[Lang]}}</el-menu-item>
           <el-submenu index="skill">
             <template slot="title" style="height: 40px;line-height: 40px;">{{secondNavItem[Lang]}}</template>
-            <el-submenu index="skill">
+            <el-submenu index="/skill/Front-end">
               <template slot="title">前端</template>
-              <el-menu-item index="skill/Front-end/1" :route="{path: '/skill/Front-end/1'}">选项1</el-menu-item>
-              <el-menu-item index="skill/Front-end/2">选项2</el-menu-item>
-              <el-menu-item index="skill/Front-end/3">选项3</el-menu-item>
+              <!-- <el-menu-item index="/skill/Front-end/1" :route="{path: '/skill/Front-end/1'}">选项1</el-menu-item> -->
+              <el-menu-item index="/skill/Front-end/vue">vue-cli</el-menu-item>
+              <el-menu-item index="/skill/Front-end/git">git</el-menu-item>
+              <el-menu-item index="/skill/Front-end/nginx">nginx</el-menu-item>
+              <el-menu-item index="/skill/Front-end/js">js</el-menu-item>
+              <el-menu-item index="/skill/Front-end/interview">面试题</el-menu-item>
             </el-submenu>
-            <el-submenu index="2-2">
+            <el-submenu index="/skill/Back-end">
               <template slot="title">后端</template>
-              <el-menu-item index="2-2-1">选项1</el-menu-item>
-              <el-menu-item index="2-2-2">选项2</el-menu-item>
-              <el-menu-item index="2-2-3">选项3</el-menu-item>
+              <el-menu-item index="/skill/Back-end/python">python</el-menu-item>
+              <el-menu-item index="/skill/Back-end/Django">Django</el-menu-item>
             </el-submenu>
-            <el-submenu index="2-3">
+            <el-submenu index="/skill/computer">
               <template slot="title">计算机</template>
-              <el-menu-item index="2-3-1">选项1</el-menu-item>
-              <el-menu-item index="2-3-2">选项2</el-menu-item>
-              <el-menu-item index="2-3-3">选项3</el-menu-item>
+              <el-menu-item index="/skill/computer/computer">计算机</el-menu-item>
+              <el-menu-item index="/skill/computer/linux">linux</el-menu-item>
             </el-submenu>
           </el-submenu>
           <el-menu-item index="3">{{thirdNavItem[Lang]}}</el-menu-item>
